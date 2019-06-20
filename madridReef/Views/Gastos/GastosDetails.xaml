@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              x:Class="madridReef.Views.Gastos.GastosDetails"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+
+        <Entry x:Name="txtNombre" Placeholder="Nombre Casto"></Entry>
+        <Entry x:Name="txtDescripcion" Placeholder="Descripcion"></Entry>
+        <Entry x:Name="txtMonto" Placeholder="Monto"></Entry>
+        <Entry x:Name="txtFechaRegistro" Placeholder="Fecha de Registro" IsReadOnly="True"></Entry>
+        <Entry x:Name="txtFechaModificacion" Placeholder="Fechad de Modificación" IsReadOnly="True"></Entry>
+
+        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <!--<Button x:Name="btnActualizar" WidthRequest="200" Text="Actualizar" Clicked="BtnActualizar_Clicked"/>-->
+            <Button x:Name="btnActualizar" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf0c7;" FontAttributes="Bold" Clicked="BtnActualizar_Clicked" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
+                </Button.FontFamily>
+            </Button>
+            <Button x:Name="btnDelete" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf2ed;" FontAttributes="Bold" Clicked="BtnDelete_Clicked" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
+                </Button.FontFamily>
+            </Button>
+        </StackLayout>
+        <Entry x:Name="txtID" Placeholder="Fechad de Modificación" IsVisible="False"></Entry>
+    </StackLayout>
+
+</ContentPage>

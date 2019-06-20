@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="madridReef.Views.Proveedores.newProveedoresDetails"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Entry x:Name="txtEmpresa" Placeholder="Empresa"></Entry>
+        <Entry x:Name="txtNombre" Placeholder="Contacto"></Entry>
+        <Entry x:Name="txtCelular" Placeholder="Celular"></Entry>
+        <Entry x:Name="txtFacebook" Placeholder="Facebook URL"></Entry>
+        <Entry x:Name="txtFechaRegistro" Placeholder="Fecha de Registro" IsReadOnly="True"></Entry>
+        <Entry x:Name="txtFechaModificacion" Placeholder="Fechad de Modificación" IsReadOnly="True"></Entry>
+
+        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

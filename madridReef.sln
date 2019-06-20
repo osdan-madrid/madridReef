@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "madridReef.Android", "madridReef.Android\madridReef.Android.csproj", "{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "madridReef", "madridReef\madridReef.csproj", "{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A07BFC82-A769-4C5D-9B80-BAEB2B11C084}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384DA48D-1B69-4FFD-A851-2C2A0E9A8A16}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFB4782B-5007-4534-95F5-3F3D4A78A168}
+	EndGlobalSection
+EndGlobal

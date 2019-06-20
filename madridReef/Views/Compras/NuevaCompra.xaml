@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="madridReef.Views.Compras.NuevaCompra"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Entry x:Name="txtDescripcion" Placeholder="Descripción"></Entry>
+        <Picker x:Name="picker"
+        Title="Selecciona un gasto"
+        TitleColor="Red">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Pasajes</x:String>
+                    <x:String>Frag/MiniColonia/Colonia</x:String>
+                    <x:String>Plugs</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Entry x:Name="txtFechaRegistro" Placeholder="Fecha de Registro" IsReadOnly="True"></Entry>
+        <Entry x:Name="txtFechaModificacion" Placeholder="Fechad de Modificación" IsReadOnly="True"></Entry>
+
+        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <!--<Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>-->
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
