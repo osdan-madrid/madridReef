@@ -19,7 +19,7 @@ namespace madridReef.Services
               .Child("TipoProductos")
               .OnceAsync<TipoProducto>()).Select(item => new TipoProducto
               {
-                  TipoProductoID = item.Object.TipoProductoID,
+                  TipoProductoID = item.Key,
                   Nombre = item.Object.Nombre,
                   FechaRegistro = item.Object.FechaRegistro,
                   FechaModificacion = item.Object.FechaModificacion
@@ -29,11 +29,9 @@ namespace madridReef.Services
 
         public async Task AddTipoProducto(TipoProducto tipoProducto)
         {
-            string ID = FirebaseKeyGenerator.Next();
             await firebase
               .Child("TipoProductos")
               .PostAsync(new TipoProducto() {
-                  TipoProductoID = ID,
                   Nombre = tipoProducto.Nombre,
                   FechaRegistro = System.DateTime.Now,
                   FechaModificacion = null,

@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 using madridReef.Services;
 using madridReef.Models;
 
-namespace madridReef.Views.Gastos
+namespace madridReef.Views.CatalogoGastos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class newGastosDetails : ContentPage
     {
-        GastosHelper firebaseHelper = new GastosHelper();
+        CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
 
      
         public newGastosDetails()
@@ -29,7 +29,7 @@ namespace madridReef.Views.Gastos
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            Gasto _nuevo = new Gasto();
+            CatalogoGasto _nuevo = new CatalogoGasto();
             _nuevo.Descripcion = txtDescripcion.Text;
             _nuevo.Nombre = txtNombre.Text;
             _nuevo.Monto = Convert.ToDecimal( txtMonto.Text);

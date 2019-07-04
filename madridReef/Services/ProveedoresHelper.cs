@@ -19,7 +19,7 @@ namespace madridReef.Services
               .Child("Proveedores")
               .OnceAsync<Proveedor>()).Select(item => new Proveedor
               {
-                  ProveedorID = item.Object.ProveedorID,
+                  ProveedorID = item.Key,
                   NombreEmpresa = item.Object.NombreEmpresa,
                   NombreCompleto = item.Object.NombreCompleto,
                   NoCelular = item.Object.NoCelular,
@@ -32,11 +32,9 @@ namespace madridReef.Services
 
         public async Task AddProveedor(Proveedor nuevoProveedor)
         {
-            string ID = FirebaseKeyGenerator.Next();
             await firebase
               .Child("Proveedores")
               .PostAsync(new Proveedor() {
-                  ProveedorID = ID,
                   NombreEmpresa = nuevoProveedor.NombreEmpresa,
                   NombreCompleto = nuevoProveedor.NombreCompleto,
                   NoCelular = nuevoProveedor.NoCelular,
@@ -70,6 +68,7 @@ namespace madridReef.Services
                   NombreCompleto = proveedor.NombreCompleto,
                   NoCelular = proveedor.NoCelular,
                   FechaModificacion = System.DateTime.Now,
+                  FechaRegistro = proveedor.FechaRegistro,
                   FacebookURLProfile = proveedor.FacebookURLProfile,
               });
 

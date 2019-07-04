@@ -43,7 +43,10 @@ namespace madridReef.Views
                         MenuPages.Add(id, new NavigationPage(new TipoProductos.TipoProductosList()));
                         break;
                     case (int)MenuItemType.Gastos:
-                        MenuPages.Add(id, new NavigationPage(new Gastos.GastosList()));
+                        MenuPages.Add(id, new NavigationPage(new CatalogoGastos.GastosList()));
+                        break;
+                    case (int)MenuItemType.Compras:
+                        MenuPages.Add(id, new NavigationPage(new Compras.NuevaCompra()));
                         break;
                 }
             }

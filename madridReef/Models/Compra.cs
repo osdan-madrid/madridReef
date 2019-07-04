@@ -28,7 +28,7 @@ namespace madridReef.Models
         /// <summary>
         /// Fecha en que se realizó la compra
         /// </summary>
-        public DateTime FechaCompra { get; set; }
+        public DateTime  FechaCompra { get; set; }
 
         /// <summary>
         /// Precio total de la compra
@@ -36,9 +36,14 @@ namespace madridReef.Models
         public decimal PrecioTotalCompra { get; set; }
 
         /// <summary>
+        /// Precio estimado por unidad
+        /// </summary>
+        public decimal PrecioEstimadoUnidad { get; set; }
+
+        /// <summary>
         /// Lista de gastos relacionados a la compra
         /// </summary>
-        public List<Gasto> Gastos { get; set; }
+        public List<CatalogoGasto> Gastos { get; set; }
 
         /// <summary>
         /// Cantidad de pólipos ó unidades.
@@ -48,7 +53,7 @@ namespace madridReef.Models
         /// <summary>
         /// URL de la imagen almacenada en la nube
         /// </summary>
-        public string Imagen { get; set; }
+        public string ImagenURL { get; set; }
 
         /// <summary>
         /// Fecha de Registro

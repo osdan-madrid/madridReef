@@ -2,7 +2,7 @@
 
 namespace madridReef.Models
 {
-    public class Gasto
+    public class CatalogoGasto
     {
         /// <summary>
         /// Identificador único del gasto

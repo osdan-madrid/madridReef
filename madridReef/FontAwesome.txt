@@ -1,0 +1,5 @@
+﻿"&#xf067;" - Signo de +
+"&#xf2ed;" - Bote de basura
+"&#xf0e2;" - Undo
+"&#xf021;" - Refresh
+"&#xf0c7;" - Guardar

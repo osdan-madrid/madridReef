@@ -10,14 +10,14 @@ using madridReef.Models;
 using madridReef.ViewModels.Compras;
 using Rg.Plugins.Popup.Services;
 
-namespace madridReef.Views.Compras
+namespace madridReef.Views.Frags
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NuevaCompra : ContentPage
+    public partial class NuevoFrag : ContentPage
     {
-        Compra compra = new Compra();
-        CompraDetailViewModel _viewModel = new CompraDetailViewModel();
-        ComprasHelper firebaseHelperCompras = new ComprasHelper();
+        Frag frag = new Frag();
+         CompraDetailViewModel _viewModel = new CompraDetailViewModel();
+        FragHelper firebaseHelperFrag = new FragHelper();
 
         ProveedoresHelper firebaseHelper = new ProveedoresHelper();
         List<Proveedor> allProveedores;
@@ -25,14 +25,18 @@ namespace madridReef.Views.Compras
         TipoProductosHelper firebaseHelperProductos = new TipoProductosHelper();
         List<TipoProducto> allTipoProductos;
 
-        public NuevaCompra()
+        ComprasHelper firebaseHelperCompras = new ComprasHelper();
+
+        List<Compra> allCompras;
+
+        public NuevoFrag()
         {
             InitializeComponent();
             GenerarHandlers();
 
 
         }
-        public NuevaCompra(Compra compra = null)
+        public NuevoFrag(Frag frag = null)
         {
             InitializeComponent();
 
@@ -40,10 +44,10 @@ namespace madridReef.Views.Compras
 
         protected async override void OnAppearing()
         {
-            
+
             base.OnAppearing();
 
-            compra.Gastos = new List<CatalogoGasto>();
+            frag.Gastos = new List<CatalogoGasto>();
 
             resetearControles();
             actualizarListaGastos();
@@ -106,8 +110,8 @@ namespace madridReef.Views.Compras
         {
             ////await Navigation.PushAsync(new AgregarGasto(ref compra));
 
-            if (compra.Gastos == null)
-                compra.Gastos = new List<CatalogoGasto>();
+            if (frag.Gastos == null)
+                frag.Gastos = new List<CatalogoGasto>();
 
             //var agregarGasto = new AgregarGasto();
             //agregarGasto.BindingContext =  compra;
@@ -225,6 +229,19 @@ namespace madridReef.Views.Compras
         }
 
         /// <summary>
+        /// Llenará la lista de Colonias Madre
+        /// </summary>
+        async private void fillColoniaMadre()
+        {
+
+            allCompras = await firebaseHelperCompras.GetAllColoniaMadres();
+            foreach (Compra compra in allCompras)
+            {
+                pickerColoniaMadre.Items.Add(compra.Descripcion);
+            }
+        }
+
+        /// <summary>
         /// Llenará la lista de tipo de Productos.
         /// </summary>
         async private void fillTipoProductos()
@@ -320,17 +337,31 @@ namespace madridReef.Views.Compras
 
 
 
+
+
+
+
+
+
+
+
+
+
         #endregion
 
+        private void PickerColoniaMadre_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void DatePickerElaboracion_DateSelected(object sender, DateChangedEventArgs e)
+        {
 
-
-
-
-
-
-
-
+        }
     }
 }
+
+
+
+
+

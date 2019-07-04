@@ -8,7 +8,43 @@
              Title="Menu">
              
     <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="ListViewMenu"
+
+        <ListView  x:Name="GroupedView"
+                    GroupDisplayBinding="{Binding Title}"
+                    RowHeight="75"
+                    GroupShortNameBinding="{Binding ShortName}"
+                    IsGroupingEnabled="true" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Nombre}"
+                        Detail="{Binding Description}"
+                        ImageSource="{Binding Icon}"
+                        Height="75"
+                        TextColor="#005569" />       
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5,5,5,5" BackgroundColor="#E2F5F9">
+                            <Button Image="{Binding StateIcon}"
+                      BackgroundColor="Transparent"
+                      BorderColor="Transparent"
+                      BorderWidth="0"
+                      Clicked="HeaderTapped" 
+                      CommandParameter="{Binding .}"/>
+                            <Label Text="{Binding TitleWithItemCount}" 
+                     TextColor="#005569"
+                     FontSize="15"
+                     VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+
+
+        <!--<ListView x:Name="ListViewMenu"
                     HasUnevenRows="True">
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
@@ -24,7 +60,7 @@
                              Padding="7,0,0,0"
                              Spacing="10"
                                      HeightRequest="50">
-                            <!--<Grid Padding="10">-->
+                            --><!--<Grid Padding="10">--><!--
                             <Label Text="{Binding Icon}" FontSize="30" TextColor="#54526d" VerticalOptions="Center"   HorizontalOptions="End">
                                 <Label.FontFamily>
                                     <OnPlatform 
@@ -34,12 +70,14 @@
                                 </Label.FontFamily>
                             </Label>
                             <Label Text="{Binding Title}" VerticalOptions="Center"  FontSize="20"/>
-                            <!--</Grid>-->
+                            --><!--</Grid>--><!--
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
+        
+        
     </StackLayout>
 
 </ContentPage>

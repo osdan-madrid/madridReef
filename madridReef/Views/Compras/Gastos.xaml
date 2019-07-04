@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    x:Class="madridReef.Views.Compras.Gastos"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <StackLayout
+        Margin="12"
+        Padding="24"
+        BackgroundColor="WhiteSmoke"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <StackLayout>
+            <Picker x:Name="picker" Title="Selecciona un gasto" SelectedIndexChanged="Picker_SelectedIndexChanged" >
+
+            </Picker>
+            <Label Text="Monto" />
+            <Entry x:Name="txtMonto" Placeholder="Monto"></Entry>
+            
+            <Entry x:Name="txtID" IsVisible="False"></Entry>
+
+            
+            
+            
+            <!--<Label Text="what's up?" />
+            <Entry
+                x:Name="TaskEntry"
+                Placeholder="write them here"
+                TextChanged="TaskEntry_OnTextChanged" />-->
+        </StackLayout>
+        <!--<StackLayout>
+            <Label Text="Place an exact date and time" />
+            <DatePicker />
+            <TimePicker />
+        </StackLayout>
+        <Button
+            x:Name="TaskButton"
+            BackgroundColor="Crimson"
+            Clicked="Button_OnClicked"
+            CornerRadius="10"
+            FontSize="Large"
+            IsEnabled="False"
+            Text="Add this task now"
+            TextColor="White" />-->
+        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <!--<Button x:Name="btnActualizar" WidthRequest="200" Text="Actualizar" Clicked="BtnActualizar_Clicked"/>-->
+            <!--<Button x:Name="btnAgregar" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf0c7;" FontAttributes="Bold" Clicked="BtnAgregar_Clicked"  >-->
+            <Image x:Name="myImgAdd" Source="Save.png" HeightRequest="56" WidthRequest="56"  HorizontalOptions="Center"/>
+            <Image x:Name="myImgBack" Source="Close.png" HeightRequest="56" WidthRequest="56"  HorizontalOptions="Center"/>
+            <!--<Button x:Name="btnAgregar" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf0c7;" FontAttributes="Bold" Clicked="BtnAgregar_Clicked"  >
+           
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
+                </Button.FontFamily>
+            </Button>-->
+            <!--<Button x:Name="btnCancelar" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf0e2;" FontAttributes="Bold" Clicked="BtnCancelar_Clicked" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
+                </Button.FontFamily>
+            </Button>-->
+        </StackLayout>
+
+
+    </StackLayout>
+</pages:PopupPage>

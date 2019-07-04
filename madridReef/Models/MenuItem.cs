@@ -4,7 +4,7 @@ using System.Text;
 
 namespace madridReef.Models
 {
-    public enum MenuItemType
+    public enum MenuItem_Type
     {
         Compras,
         Gastos,
@@ -13,26 +13,29 @@ namespace madridReef.Models
         Browse,
         About
     }
-    public class HomeMenuItem
+
+    public class MenuItem
     {
         /// <summary>
         /// Identificador del elemento del menú.
         /// </summary>
-        public MenuItemType Id { get; set; }
+        public MenuItem_Type Id { get; set; }
 
         /// <summary>
-        /// Propiedad que almacenará el título del elemento del menú.
+        /// Nombre de la opción del menú
         /// </summary>
-        public string Title { get; set; }
+        public string Nombre { get; set; }
 
         /// <summary>
-        /// Propiedad que contendrá la ruta del ícono a utilizar.
+        /// Icono que se mostrará
         /// </summary>
         public string Icon { get; set; }
 
         /// <summary>
-        /// Propiedad para almacenar el nombre del archivo que contendrá el icon
+        /// FA Icon File
         /// </summary>
-        public string FaIconFile { get; set; }
+        public string FaIconFile = "fa-solid-900.ttf#Font Awesome 5 Free Solid";
+
+        public string Description { get; set; }
     }
 }

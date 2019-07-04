@@ -9,17 +9,17 @@ using Xamarin.Forms.Xaml;
 
 using madridReef.Services;
 using madridReef.Models;
-using madridReef.ViewModels.Gastos;
+using madridReef.ViewModels.CatalogoGastos;
 
 
 
-namespace madridReef.Views.Gastos
+namespace madridReef.Views.CatalogoGastos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GastosDetails : ContentPage
     {
         ItemDetailViewModel viewModel;
-        GastosHelper firebaseHelper = new GastosHelper();
+        CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
         public GastosDetails(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace madridReef.Views.Gastos
         {
             InitializeComponent();
             ResetearControles();
-            var item = new Gasto
+            var item = new CatalogoGasto
             {
                 Nombre = "Nombre",
                 Descripcion = "Descripcion"
@@ -55,7 +55,7 @@ namespace madridReef.Views.Gastos
         {
             try
             {
-                Gasto _item = new Gasto();
+                CatalogoGasto _item = new CatalogoGasto();
                 _item.Descripcion = txtDescripcion.Text;
                 _item.Nombre = txtNombre.Text;
                 _item.Monto = Convert.ToDecimal(txtMonto.Text);
@@ -97,7 +97,7 @@ namespace madridReef.Views.Gastos
             bool respuesta = await DisplayAlert("¿Eliminar?", "¿Está seguro de borrar el registro?", "Aceptar", "Cancelar");
            if(respuesta)
             {
-                Gasto _item = new Gasto();
+                CatalogoGasto _item = new CatalogoGasto();
                 _item.GastoId = txtID.Text;
                 await firebaseHelper.Delete(_item);
                 ResetearControles();

@@ -8,18 +8,18 @@ using System.Collections.Generic;
 
 namespace madridReef.Services
 {
-    public class GastosHelper
+    public class CatalogoGastosHelper
     {
         FirebaseClient firebase = new FirebaseClient(AppSettings.FirebaseClient);
 
-        public async Task<List<Gasto>> GetAll()
+        public async Task<List<CatalogoGasto>> GetAll()
         {
 
             return (await firebase
-              .Child("Gastos")
-              .OnceAsync<Gasto>()).Select(item => new Gasto
+              .Child("CatalogoGastos")
+              .OnceAsync<CatalogoGasto>()).Select(item => new CatalogoGasto
               {
-                  GastoId = item.Key, //item.Object.GastoId,
+                  GastoId = item.Key, 
                   Descripcion = item.Object.Descripcion,
                   Nombre = item.Object.Nombre,
                   Monto = item.Object.Monto,
@@ -29,14 +29,12 @@ namespace madridReef.Services
               }).ToList();
         }
 
-        public async Task Add(Gasto _nuevo)
+        public async Task Add(CatalogoGasto _nuevo)
         {
-            //string ID = FirebaseKeyGenerator.Next();
             await firebase
-              .Child("Gastos")
-              .PostAsync(new Gasto()
+              .Child("CatalogoGastos")
+              .PostAsync(new CatalogoGasto()
               {
-                 //GastoId = ID,
                  Descripcion = _nuevo.Descripcion,
                  Nombre = _nuevo.Nombre,
                  FechaRegistro = System.DateTime.Now,
@@ -45,25 +43,25 @@ namespace madridReef.Services
 
         }
 
-        public async Task<Gasto> GetOne(Gasto item)
+        public async Task<CatalogoGasto> GetOne(CatalogoGasto item)
         {
             var all = await GetAll();
             await firebase
-              .Child("Gasto")
-              .OnceAsync<Gasto>();
+              .Child("CatalogoGastos")
+              .OnceAsync<CatalogoGasto>();
             return all.Where(a => a.GastoId == item.GastoId).FirstOrDefault();
         }
 
-        public async Task Update(Gasto item)
+        public async Task Update(CatalogoGasto item)
         {
             var toUpdate = (await firebase
-              .Child("Gastos")
-              .OnceAsync<Gasto>()).Where(a => a.Key == item.GastoId).FirstOrDefault();
+              .Child("CatalogoGastos")
+              .OnceAsync<CatalogoGasto>()).Where(a => a.Key == item.GastoId).FirstOrDefault();
 
             await firebase
-              .Child("Gastos")
+              .Child("CatalogoGastos")
               .Child(toUpdate.Key)
-              .PutAsync(new Gasto()
+              .PutAsync(new CatalogoGasto()
               {
                   Nombre = item.Nombre,
                   Descripcion = item.Descripcion,
@@ -77,11 +75,11 @@ namespace madridReef.Services
 
         }
 
-        public async Task Delete(Gasto item)
+        public async Task Delete(CatalogoGasto item)
         {
             var toDelete = (await firebase
               .Child("Gastos")
-              .OnceAsync<Gasto>()).Where(a => a.Key == item.GastoId).FirstOrDefault();
+              .OnceAsync<CatalogoGasto>()).Where(a => a.Key == item.GastoId).FirstOrDefault();
             await firebase.Child("Gastos").Child(toDelete.Key).DeleteAsync();
 
         }

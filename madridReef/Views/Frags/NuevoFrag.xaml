@@ -4,45 +4,53 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="madridReef.Views.Compras.NuevaCompra"
+             x:Class="madridReef.Views.Frags.NuevoFrag"
              Title="{Binding Title}">
-    
+
     <ScrollView>
-        
+
         <StackLayout Spacing="20" Padding="15">
 
 
-            <Label Text="Descripcion" />
-            <Entry x:Name="txtDescripción" ></Entry>
-
-           
-            <Entry x:Name="txtIdProveedor" IsVisible="False" ></Entry>
-            <Picker x:Name="picker" Title="Selecciona un proveedor" SelectedIndexChanged="Picker_SelectedIndexChanged"  >
-             </Picker>
-            
-            <Entry x:Name="txtIdTipoProducto" IsVisible="False" ></Entry>
-            <Picker x:Name="pickerTipoProducto" Title="Selecciona un tipo de compra" SelectedIndexChanged="PickerTipoCompra_SelectedIndexChanged"  >
+            <Entry x:Name="txtIdColoniaMadre" IsVisible="False" ></Entry>
+            <Picker x:Name="pickerColoniaMadre" Title="Selecciona una Colonia" SelectedIndexChanged="PickerColoniaMadre_SelectedIndexChanged"  >
             </Picker>
-            
-            
+
             <Label Text="Unidades" />
             <Entry x:Name="txtUnidades" ></Entry>
+
+            <Label Text="Descripcion" />
+            <Entry x:Name="txtDescripción" ></Entry>
 
             <Label Text="Imagen URL" />
             <Entry x:Name="txtURL" ></Entry>
 
 
-            <!--Selecciona Fecha compra -->
+            <Entry x:Name="txtIdProveedor" IsVisible="False" ></Entry>
+            <Picker x:Name="picker" Title="Selecciona un proveedor" SelectedIndexChanged="Picker_SelectedIndexChanged"  >
+            </Picker>
+
+            <!--Selecciona Fecha Elaboración -->
             <StackLayout>
-                <Label Text="Fecha de compra" />
-                <DatePicker DateSelected="DatePicker_DateSelected" />
-                
+                <Label Text="Fecha de elaboración" />
+                <DatePicker DateSelected="DatePickerElaboracion_DateSelected" />
+
                 <Label x:Name="lblFecha" HorizontalOptions="Center"></Label>
             </StackLayout>
             <!--Termina Fecha compra -->
 
-            
-            
+
+            <!--Selecciona Fecha compra -->
+            <StackLayout>
+                <Label Text="Fecha de Venta" />
+                <DatePicker DateSelected="DatePicker_DateSelected" />
+
+                <Label x:Name="lblFecha" HorizontalOptions="Center"></Label>
+            </StackLayout>
+            <!--Termina Fecha compra -->
+
+
+
             <!-- Montos Totales -->
             <StackLayout  HorizontalOptions="Center"  Orientation="Horizontal">
                 <Button x:Name="btnActualizarCostos" WidthRequest="50" TextColor="#54526d" FontSize="Large" Text="&#xf021;" FontAttributes="Bold" Clicked="BtnActualizarCostos_Clicked" >
@@ -63,17 +71,6 @@
             <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
                 <Image x:Name="myImgAdd" Source="Plus.png" HeightRequest="56" WidthRequest="56"  HorizontalOptions="Center"/>
                 <Image x:Name="myImgSave" Source="Save.png" HeightRequest="56" WidthRequest="56"  HorizontalOptions="Center"/>
-                <!--<Button x:Name="btnAgregar" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf067;" FontAttributes="Bold" Clicked="BtnAgregar_Clicked" >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
-                    </Button.FontFamily>
-                </Button>
-                
-                <Button x:Name="btnGuardarVenta" WidthRequest="150" TextColor="#54526d" FontSize="Large" Text="&#xf0c7;" FontAttributes="Bold" Clicked="BtnGuardarVenta_Clicked" >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
-                    </Button.FontFamily>
-                </Button>-->
             </StackLayout>
             <!-- Termina Botón Guardar -->
 
@@ -123,3 +120,4 @@
         </StackLayout>
     </ScrollView>
 </ContentPage>
+

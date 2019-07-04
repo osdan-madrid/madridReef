@@ -38,8 +38,6 @@ namespace madridReef.Views.Proveedores
             txtFechaModificacion.Text = string.Empty;
             txtFechaRegistro.Text = string.Empty;
             await DisplayAlert("Exitoso", "Proveedor Agregado Exitosamente", "OK");
-            //var allPersons = await firebaseHelper.GetAllProveedores();
-            //list.ItemsSource = allPersons;
         }
     }
 }
