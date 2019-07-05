@@ -58,13 +58,13 @@ namespace madridReef.Models
                     new MenuItem { Nombre = "Nueva", Icon="CarritoCompra.png" , Description ="Registrar una nueva compra", Id=MenuItem_Type.Compras },
                 },
                 new MenuGroupItem("Catalogos","CAT"){
+                    new MenuItem { Nombre= "Frags",  Icon="Sol.png", Id=MenuItem_Type.Frag, Description="Dar de alta un nuevo frag" },
                     new MenuItem { Nombre= "Gastos",  Icon="Money.png", Id=MenuItem_Type.Gastos },
                     new MenuItem { Nombre="Proveedores", Icon="Proveedor.png" , Id=MenuItem_Type.Proveedores},
                     new MenuItem { Nombre="Tipo Productos", Icon="Cajas.png",  Id=MenuItem_Type.TipoProducto },
                 },
-                new MenuGroupItem("Vegetables","V"){
-                     new MenuItem { Nombre= "Gastos",  Icon="CarritoCompra.png" },
-                    new MenuItem { Nombre="Proveedores", Icon="CarritoCompra.png" },  
+                new MenuGroupItem("Frags","F"){
+                     new MenuItem { Nombre= "Nuevo",  Icon="CarritoCompra.png" },
                 } };
             All = Groups;
         }

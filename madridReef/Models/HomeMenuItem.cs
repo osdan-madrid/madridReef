@@ -6,12 +6,12 @@ namespace madridReef.Models
 {
     public enum MenuItemType
     {
+        Browse,
         Compras,
         Gastos,
         Proveedores,
         TipoProducto,
-        Browse,
-        About
+        Frag
     }
     public class HomeMenuItem
     {

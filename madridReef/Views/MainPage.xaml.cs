@@ -33,9 +33,9 @@ namespace madridReef.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    //case (int)MenuItemType.About:
+                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    //    break;
                     case (int)MenuItemType.Proveedores:
                         MenuPages.Add(id, new NavigationPage(new Proveedores.ProveedoresList()));
                         break;
@@ -47,6 +47,9 @@ namespace madridReef.Views
                         break;
                     case (int)MenuItemType.Compras:
                         MenuPages.Add(id, new NavigationPage(new Compras.NuevaCompra()));
+                        break;
+                    case (int)MenuItemType.Frag:
+                        MenuPages.Add(id, new NavigationPage(new Frags.NuevoFrag()));
                         break;
                 }
             }

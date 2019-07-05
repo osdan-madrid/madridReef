@@ -16,26 +16,20 @@
             <Picker x:Name="pickerColoniaMadre" Title="Selecciona una Colonia" SelectedIndexChanged="PickerColoniaMadre_SelectedIndexChanged"  >
             </Picker>
 
-            <Label Text="Unidades" />
-            <Entry x:Name="txtUnidades" ></Entry>
+            <Label Text="Pólipos" />
+            <Entry x:Name="txtUnidades" TextChanged="TxtUnidades_TextChanged" ></Entry>
+
 
             <Label Text="Descripcion" />
             <Entry x:Name="txtDescripción" ></Entry>
 
-            <Label Text="Imagen URL" />
-            <Entry x:Name="txtURL" ></Entry>
-
-
-            <Entry x:Name="txtIdProveedor" IsVisible="False" ></Entry>
-            <Picker x:Name="picker" Title="Selecciona un proveedor" SelectedIndexChanged="Picker_SelectedIndexChanged"  >
-            </Picker>
 
             <!--Selecciona Fecha Elaboración -->
             <StackLayout>
                 <Label Text="Fecha de elaboración" />
                 <DatePicker DateSelected="DatePickerElaboracion_DateSelected" />
 
-                <Label x:Name="lblFecha" HorizontalOptions="Center"></Label>
+                <Label x:Name="lblFechaElaboracion" HorizontalOptions="Center"></Label>
             </StackLayout>
             <!--Termina Fecha compra -->
 
@@ -45,11 +39,14 @@
                 <Label Text="Fecha de Venta" />
                 <DatePicker DateSelected="DatePicker_DateSelected" />
 
-                <Label x:Name="lblFecha" HorizontalOptions="Center"></Label>
+                <Label x:Name="lblFechaVenta" HorizontalOptions="Center"></Label>
             </StackLayout>
             <!--Termina Fecha compra -->
 
-
+            
+            <Label Text="Imagen URL" />
+            <Entry x:Name="txtURL" ></Entry>
+            
 
             <!-- Montos Totales -->
             <StackLayout  HorizontalOptions="Center"  Orientation="Horizontal">
@@ -58,6 +55,8 @@
                         <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Solid" iOS="Font Awesome 5 Free"/>
                     </Button.FontFamily>
                 </Button>
+
+                     
                 <Label x:Name="lblTituloTotal" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="Start"  Text="Costo Total: "></Label>
                 <Label x:Name="lblMontoTotal" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="Start" Text="0.0"></Label>
             </StackLayout>

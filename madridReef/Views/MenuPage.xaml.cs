@@ -84,9 +84,9 @@ namespace madridReef.Views
                 newGroup.MenuItemCount = group.Count;
                 if (group.Expanded)
                 {
-                    foreach (madridReef.Models.MenuItem food in group)
+                    foreach (madridReef.Models.MenuItem elemento in group)
                     {
-                        newGroup.Add(food);
+                        newGroup.Add(elemento);
                     }
                 }
                 _expandedGroups.Add(newGroup);

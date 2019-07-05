@@ -60,6 +60,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Frags\Gastos.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="Views\Proveedores\newProveedoresDetails.xaml.cs">
       <DependentUpon>newProveedoresDetails.xaml</DependentUpon>
     </Compile>

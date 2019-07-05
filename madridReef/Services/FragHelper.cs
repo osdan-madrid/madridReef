@@ -24,10 +24,10 @@ namespace madridReef.Services
                   ColoniaMadre = item.Object.ColoniaMadre,
                   FechaElaboracion = item.Object.FechaElaboracion,
                   FechaVenta = item.Object.FechaVenta,
-                  GastosElaboracion = item.Object.GastosElaboracion,
+                  Gastos = item.Object.Gastos,
                   ImagenURL = item.Object.ImagenURL,
                   PrecioSugeridoVenta = item.Object.PrecioSugeridoVenta,
-                  Valor = item.Object.Valor,
+                  ValorPolipos = item.Object.ValorPolipos,
                   FechaRegistro = item.Object.FechaRegistro,
                   FechaModificacion = item.Object.FechaModificacion
 
@@ -44,10 +44,10 @@ namespace madridReef.Services
                   ColoniaMadre = _nuevo.ColoniaMadre,
                   FechaElaboracion = _nuevo.FechaElaboracion,
                   FechaVenta = _nuevo.FechaVenta,
-                  GastosElaboracion = _nuevo.GastosElaboracion,
+                  Gastos = _nuevo.Gastos,
                   ImagenURL = _nuevo.ImagenURL,
                   PrecioSugeridoVenta = _nuevo.PrecioSugeridoVenta,
-                  Valor = _nuevo.Valor,
+                  ValorPolipos = _nuevo.ValorPolipos,
                   FechaRegistro = System.DateTime.Now
               });
 
@@ -77,10 +77,10 @@ namespace madridReef.Services
                   ColoniaMadre = item.ColoniaMadre,
                   FechaElaboracion = item.FechaElaboracion,
                   FechaVenta = item.FechaVenta,
-                  GastosElaboracion = item.GastosElaboracion,
+                  Gastos = item.Gastos,
                   ImagenURL = item.ImagenURL,
                   PrecioSugeridoVenta = item.PrecioSugeridoVenta,
-                  Valor = item.Valor,
+                  ValorPolipos = item.ValorPolipos,
                   FechaRegistro = item.FechaRegistro,
                   FechaModificacion = System.DateTime.Now
               });

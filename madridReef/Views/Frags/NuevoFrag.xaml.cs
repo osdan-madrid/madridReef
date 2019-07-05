@@ -9,6 +9,7 @@ using madridReef.Services;
 using madridReef.Models;
 using madridReef.ViewModels.Compras;
 using Rg.Plugins.Popup.Services;
+using madridReef.ViewModels.Frag;
 
 namespace madridReef.Views.Frags
 {
@@ -16,7 +17,7 @@ namespace madridReef.Views.Frags
     public partial class NuevoFrag : ContentPage
     {
         Frag frag = new Frag();
-         CompraDetailViewModel _viewModel = new CompraDetailViewModel();
+        FragDetailViewModel _viewModel = new FragDetailViewModel();
         FragHelper firebaseHelperFrag = new FragHelper();
 
         ProveedoresHelper firebaseHelper = new ProveedoresHelper();
@@ -42,6 +43,8 @@ namespace madridReef.Views.Frags
 
         }
 
+      
+
         protected async override void OnAppearing()
         {
 
@@ -51,8 +54,8 @@ namespace madridReef.Views.Frags
 
             resetearControles();
             actualizarListaGastos();
-            fillProveedores();
-            fillTipoProductos();
+            //fillProveedores();
+            //fillTipoProductos();
         }
 
         #region Handlers
@@ -64,42 +67,42 @@ namespace madridReef.Views.Frags
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selectedValue = picker.Items[picker.SelectedIndex];
+        //private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    var selectedValue = picker.Items[picker.SelectedIndex];
 
-            Proveedor proveedor = allProveedores.Single(
-                delegate (Proveedor x)
-                {
-                    return selectedValue.ToString() == x.NombreEmpresa;
-                }
-                );
-
-
-            txtIdProveedor.Text = proveedor.ProveedorID;
-        }
-
-        /// <summary>
-        /// Evento SelectedIndexChanged del Combo de Tipo de Compra
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PickerTipoCompra_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selectedValue = pickerTipoProducto.Items[pickerTipoProducto.SelectedIndex];
-
-            TipoProducto tipoProducto = allTipoProductos.Single(
-                delegate (TipoProducto x)
-                {
-                    return selectedValue.ToString() == x.Nombre;
-                }
-                );
+        //    Proveedor proveedor = allProveedores.Single(
+        //        delegate (Proveedor x)
+        //        {
+        //            return selectedValue.ToString() == x.NombreEmpresa;
+        //        }
+        //        );
 
 
-            txtIdTipoProducto.Text = tipoProducto.TipoProductoID;
+        //    txtIdProveedor.Text = proveedor.ProveedorID;
+        //}
+
+        ///// <summary>
+        ///// Evento SelectedIndexChanged del Combo de Tipo de Compra
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void PickerTipoCompra_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    var selectedValue = pickerTipoProducto.Items[pickerTipoProducto.SelectedIndex];
+
+        //    TipoProducto tipoProducto = allTipoProductos.Single(
+        //        delegate (TipoProducto x)
+        //        {
+        //            return selectedValue.ToString() == x.Nombre;
+        //        }
+        //        );
 
 
-        }
+        //    txtIdTipoProducto.Text = tipoProducto.TipoProductoID;
+
+
+        //}
 
         /// <summary>
         /// Método utilizado para mostrar el modal para asignar los gastos relacionados a la compra.
@@ -117,10 +120,10 @@ namespace madridReef.Views.Frags
             //agregarGasto.BindingContext =  compra;
             //await Navigation.PushAsync(agregarGasto);
 
-            if (_viewModel.compra == null)
+            if (_viewModel.frag == null)
             {
-                _viewModel.compra = new Compra();
-                _viewModel.compra.Gastos = new List<CatalogoGasto>();
+                _viewModel.frag = new Frag();
+                _viewModel.frag.Gastos = new List<CatalogoGasto>();
 
             }
 
@@ -150,27 +153,27 @@ namespace madridReef.Views.Frags
         /// <param name="e"></param>
         async private void BtnGuardarVenta_Clicked(object sender, EventArgs e)
         {
-            if (_viewModel != null && _viewModel.compra != null && _viewModel.compra.Gastos != null)
+            if (_viewModel != null && _viewModel.frag != null && _viewModel.frag.Gastos != null)
             {
-                actualizarTotales();
+                //actualizarTotales();
 
-                _viewModel.compra.Descripcion = txtDescripción.Text;
-                _viewModel.compra.CantidadUnidades = Convert.ToInt32(txtUnidades.Text);
-                _viewModel.compra.proveedor = new Proveedor();
-                _viewModel.compra.proveedor.ProveedorID = txtIdProveedor.Text;
-                _viewModel.compra.proveedor.NombreEmpresa = picker.SelectedItem.ToString();
-                _viewModel.compra.tipoProducto = new TipoProducto();
-                _viewModel.compra.tipoProducto.TipoProductoID = txtIdTipoProducto.Text;
-                _viewModel.compra.tipoProducto.Nombre = pickerTipoProducto.SelectedItem.ToString();
-                _viewModel.compra.PrecioTotalCompra = Convert.ToDecimal(lblMontoTotal.Text);
-                _viewModel.compra.PrecioEstimadoUnidad = Convert.ToDecimal(lblMontoPolipo.Text);
-                _viewModel.compra.FechaCompra = Convert.ToDateTime(lblFecha.Text);
-                _viewModel.compra.ImagenURL = txtURL.Text;
-                _viewModel.compra.PrecioEstimadoUnidad = Convert.ToDecimal(lblMontoPolipo.Text);
+                //_viewModel.frag.Descripcion = txtDescripción.Text;
+                //_viewModel.frag.CantidadUnidades = Convert.ToInt32(txtUnidades.Text);
+                //_viewModel.frag.proveedor = new Proveedor();
+                //_viewModel.frag.proveedor.ProveedorID = txtIdProveedor.Text;
+                //_viewModel.frag.proveedor.NombreEmpresa = picker.SelectedItem.ToString();
+                //_viewModel.frag.tipoProducto = new TipoProducto();
+                //_viewModel.frag.tipoProducto.TipoProductoID = txtIdTipoProducto.Text;
+                //_viewModel.frag.tipoProducto.Nombre = pickerTipoProducto.SelectedItem.ToString();
+                //_viewModel.frag.PrecioTotalCompra = Convert.ToDecimal(lblMontoTotal.Text);
+                //_viewModel.frag.PrecioEstimadoUnidad = Convert.ToDecimal(lblMontoPolipo.Text);
+                //_viewModel.frag.FechaCompra = Convert.ToDateTime(lblFecha.Text);
+                //_viewModel.frag.ImagenURL = txtURL.Text;
+                //_viewModel.frag.PrecioEstimadoUnidad = Convert.ToDecimal(lblMontoPolipo.Text);
 
-                await firebaseHelperCompras.Add(_viewModel.compra);
+                //await firebaseHelperCompras.Add(_viewModel.compra);
 
-                resetearControles();
+                //resetearControles();
                 await DisplayAlert("Exitoso", "Compra Registrada Exitosamente", "OK");
             }
             else
@@ -184,7 +187,7 @@ namespace madridReef.Views.Frags
         /// <param name="e"></param>
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            lblFecha.Text = e.NewDate.ToShortDateString();
+            lblFechaVenta.Text = e.NewDate.ToShortDateString();
         }
 
         /// <summary>
@@ -198,11 +201,11 @@ namespace madridReef.Views.Frags
             if (Respuesta)
             {
                 var item = (Xamarin.Forms.Button)sender;
-                CatalogoGasto listitem = (from itm in _viewModel.compra.Gastos
+                CatalogoGasto listitem = (from itm in _viewModel.frag.Gastos
                                           where itm.Nombre == item.CommandParameter.ToString()
                                           select itm).FirstOrDefault<CatalogoGasto>();
 
-                _viewModel.compra.Gastos.Remove(listitem);
+                _viewModel.frag.Gastos.Remove(listitem);
 
                 actualizarListaGastos();
             }
@@ -216,17 +219,17 @@ namespace madridReef.Views.Frags
 
         #region Métodos
 
-        /// <summary>
-        /// Llenará la lista de Proveedores
-        /// </summary>
-        async private void fillProveedores()
-        {
-            allProveedores = await firebaseHelper.GetAllProveedores();
-            foreach (Proveedor proveedor in allProveedores)
-            {
-                picker.Items.Add(proveedor.NombreEmpresa);
-            }
-        }
+        ///// <summary>
+        ///// Llenará la lista de Proveedores
+        ///// </summary>
+        //async private void fillProveedores()
+        //{
+        //    allProveedores = await firebaseHelper.GetAllProveedores();
+        //    foreach (Proveedor proveedor in allProveedores)
+        //    {
+        //        picker.Items.Add(proveedor.NombreEmpresa);
+        //    }
+        //}
 
         /// <summary>
         /// Llenará la lista de Colonias Madre
@@ -241,17 +244,17 @@ namespace madridReef.Views.Frags
             }
         }
 
-        /// <summary>
-        /// Llenará la lista de tipo de Productos.
-        /// </summary>
-        async private void fillTipoProductos()
-        {
-            allTipoProductos = await firebaseHelperProductos.GetAllTipoProductos();
-            foreach (TipoProducto tipoProducto in allTipoProductos)
-            {
-                pickerTipoProducto.Items.Add(tipoProducto.Nombre);
-            }
-        }
+        ///// <summary>
+        ///// Llenará la lista de tipo de Productos.
+        ///// </summary>
+        //async private void fillTipoProductos()
+        //{
+        //    allTipoProductos = await firebaseHelperProductos.GetAllTipoProductos();
+        //    foreach (TipoProducto tipoProducto in allTipoProductos)
+        //    {
+        //        pickerTipoProducto.Items.Add(tipoProducto.Nombre);
+        //    }
+        //}
 
         /// <summary>
         /// Actualizará el total de la compra (incluyendo todos los gastos relacionados)
@@ -260,9 +263,9 @@ namespace madridReef.Views.Frags
         {
             decimal montoTotal = 0;
             decimal montoPolipo = 0;
-            if (_viewModel.compra != null && _viewModel.compra.Gastos != null)
+            if (_viewModel.frag != null && _viewModel.frag.Gastos != null)
             {
-                foreach (CatalogoGasto gasto in _viewModel.compra.Gastos)
+                foreach (CatalogoGasto gasto in _viewModel.frag.Gastos)
                     montoTotal += gasto.Monto;
 
 
@@ -288,10 +291,10 @@ namespace madridReef.Views.Frags
         {
             try
             {
-                if (_viewModel != null && _viewModel.compra != null && _viewModel.compra.Gastos != null && _viewModel.compra.Gastos.Count > 0)
+                if (_viewModel != null && _viewModel.frag != null && _viewModel.frag.Gastos != null && _viewModel.frag.Gastos.Count > 0)
                 {
                     lstGastos.ItemsSource = null;
-                    lstGastos.ItemsSource = _viewModel.compra.Gastos;
+                    lstGastos.ItemsSource = _viewModel.frag.Gastos;
                     lstGastos.IsVisible = true;
                 }
                 else
@@ -309,11 +312,11 @@ namespace madridReef.Views.Frags
         private void resetearControles()
         {
             txtDescripción.Text = string.Empty;
-            txtIdProveedor.Text = string.Empty;
-            txtIdTipoProducto.Text = string.Empty;
+            //txtIdProveedor.Text = string.Empty;
+            //txtIdTipoProducto.Text = string.Empty;
             txtUnidades.Text = string.Empty;
             txtURL.Text = string.Empty;
-            _viewModel = new CompraDetailViewModel();
+            _viewModel = new FragDetailViewModel();
         }
 
         /// <summary>
@@ -351,11 +354,34 @@ namespace madridReef.Views.Frags
 
         private void PickerColoniaMadre_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var selectedValue = pickerColoniaMadre.Items[pickerColoniaMadre.SelectedIndex];
+
+            Compra colonia = allCompras.Single(
+                delegate (Compra x)
+                {
+                    return selectedValue.ToString() == x.Descripcion;
+                }
+                );
+
+
+            txtIdColoniaMadre.Text = colonia.Id;
+            lblMontoPolipo.Text = colonia.PrecioEstimadoUnidad.ToString();
+            
 
         }
 
         private void DatePickerElaboracion_DateSelected(object sender, DateChangedEventArgs e)
         {
+            lblFechaElaboracion.Text = e.NewDate.ToShortDateString();
+        }
+
+        private void TxtUnidades_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (lblMontoPolipo.Text != string.Empty && lblMontoPolipo.Text != string.Empty)
+            {
+
+                lblMontoPolipo.Text =  Convert.ToString( Convert.ToInt32( txtUnidades.Text) * Convert.ToDecimal( lblMontoPolipo.Text));
+            }
 
         }
     }

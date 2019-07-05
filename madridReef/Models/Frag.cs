@@ -19,12 +19,32 @@ namespace madridReef.Models
         /// <summary>
         /// Valor del frag, incluyendo todos los gastos relacionados
         /// </summary>
-        public decimal Valor { get; set; }
+        public decimal ValorPolipos { get; set; }
+
+        /// <summary>
+        /// Suma total de otros gastos
+        /// </summary>
+        public decimal TotalOtrosGastos { get; set; }
+
+        /// <summary>
+        /// Costo real del frag
+        /// </summary>
+        public decimal PrecioElaboracion { get; set; }
 
         /// <summary>
         /// Precio sugerido de venta
         /// </summary>
         public decimal PrecioSugeridoVenta { get; set; }
+
+        /// <summary>
+        /// Precio Final de Venta
+        /// </summary>
+        public decimal PrecioDeVenta { get; set; }
+
+        /// <summary>
+        /// Ganancia
+        /// </summary>
+        public decimal Ganancia { get; set; }
 
         /// <summary>
         /// Lista de gastos relacionados a la elaboracion
