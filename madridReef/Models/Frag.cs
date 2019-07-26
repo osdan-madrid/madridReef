@@ -69,7 +69,7 @@ namespace madridReef.Models
         /// <summary>
         /// Fecha de Registro
         /// </summary>
-        public DateTime FechaVenta { get; set; }
+        public DateTime? FechaVenta { get; set; }
 
         /// <summary>
         /// Fecha de Registro

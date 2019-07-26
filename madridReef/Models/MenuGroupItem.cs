@@ -64,7 +64,7 @@ namespace madridReef.Models
                     new MenuItem { Nombre="Tipo Productos", Icon="Cajas.png",  Id=MenuItem_Type.TipoProducto },
                 },
                 new MenuGroupItem("Frags","F"){
-                     new MenuItem { Nombre= "Nuevo",  Icon="CarritoCompra.png" },
+                     new MenuItem { Nombre= "Nuevo",  Icon="CarritoCompra.png", Id=MenuItem_Type.Frag },
                 } };
             All = Groups;
         }

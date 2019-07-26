@@ -30,6 +30,8 @@ namespace madridReef.Views.Frags
 
         List<Compra> allCompras;
 
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
         public NuevoFrag()
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace madridReef.Views.Frags
 
             resetearControles();
             actualizarListaGastos();
+            fillColoniasMadre();
             //fillProveedores();
             //fillTipoProductos();
         }
@@ -112,24 +115,31 @@ namespace madridReef.Views.Frags
         async private void BtnAgregar_Clicked(object sender, EventArgs e)
         {
             ////await Navigation.PushAsync(new AgregarGasto(ref compra));
-
-            if (frag.Gastos == null)
-                frag.Gastos = new List<CatalogoGasto>();
-
-            //var agregarGasto = new AgregarGasto();
-            //agregarGasto.BindingContext =  compra;
-            //await Navigation.PushAsync(agregarGasto);
-
-            if (_viewModel.frag == null)
+            try
             {
-                _viewModel.frag = new Frag();
-                _viewModel.frag.Gastos = new List<CatalogoGasto>();
+                if (frag.Gastos == null)
+                    frag.Gastos = new List<CatalogoGasto>();
 
+                //var agregarGasto = new AgregarGasto();
+                //agregarGasto.BindingContext =  compra;
+                //await Navigation.PushAsync(agregarGasto);
+
+                if (_viewModel.frag == null)
+                {
+                    _viewModel.frag = new Frag();
+                    _viewModel.frag.Gastos = new List<CatalogoGasto>();
+
+                }
+
+                await PopupNavigation.PushAsync(new Gastos(ref _viewModel), true);
+
+                actualizarTotales();
             }
-
-            await PopupNavigation.PushAsync(new Gastos(ref _viewModel), true);
-
-            actualizarTotales();
+            catch (Exception ex)
+            {
+                Logger.Error(ex, "Error al registrar una venta.");
+                await DisplayAlert("Ocurrió el siguiente error: ", ex.Message, "OK");
+            }
 
 
             //int nn = _viewModel.compra.Gastos.Count();
@@ -187,7 +197,7 @@ namespace madridReef.Views.Frags
         /// <param name="e"></param>
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            lblFechaVenta.Text = e.NewDate.ToShortDateString();
+            //lblFechaVenta.Text = e.NewDate.ToShortDateString();
         }
 
         /// <summary>
@@ -197,18 +207,18 @@ namespace madridReef.Views.Frags
         /// <param name="args"></param>
         async void DeleteClicked(Object sender, EventArgs args)
         {
-            bool Respuesta = await DisplayAlert("Confirmar", "¿Está seguro de eliminar?", "Si", "No");
-            if (Respuesta)
-            {
-                var item = (Xamarin.Forms.Button)sender;
-                CatalogoGasto listitem = (from itm in _viewModel.frag.Gastos
-                                          where itm.Nombre == item.CommandParameter.ToString()
-                                          select itm).FirstOrDefault<CatalogoGasto>();
+            //bool Respuesta = await DisplayAlert("Confirmar", "¿Está seguro de eliminar?", "Si", "No");
+            //if (Respuesta)
+            //{
+            //    var item = (Xamarin.Forms.Button)sender;
+            //    CatalogoGasto listitem = (from itm in _viewModel.frag.Gastos
+            //                              where itm.Nombre == item.CommandParameter.ToString()
+            //                              select itm).FirstOrDefault<CatalogoGasto>();
 
-                _viewModel.frag.Gastos.Remove(listitem);
+            //    _viewModel.frag.Gastos.Remove(listitem);
 
-                actualizarListaGastos();
-            }
+            //    actualizarListaGastos();
+            //}
 
         }
 
@@ -234,10 +244,10 @@ namespace madridReef.Views.Frags
         /// <summary>
         /// Llenará la lista de Colonias Madre
         /// </summary>
-        async private void fillColoniaMadre()
+        async private void fillColoniasMadre()
         {
 
-            allCompras = await firebaseHelperCompras.GetAllColoniaMadres();
+            allCompras = await firebaseHelperCompras.GetAllColoniasMadre();
             foreach (Compra compra in allCompras)
             {
                 pickerColoniaMadre.Items.Add(compra.Descripcion);
@@ -261,27 +271,27 @@ namespace madridReef.Views.Frags
         /// </summary>
         async private void actualizarTotales()
         {
-            decimal montoTotal = 0;
-            decimal montoPolipo = 0;
-            if (_viewModel.frag != null && _viewModel.frag.Gastos != null)
-            {
-                foreach (CatalogoGasto gasto in _viewModel.frag.Gastos)
-                    montoTotal += gasto.Monto;
+            //decimal montoTotal = 0;
+            //decimal montoPolipo = 0;
+            //if (_viewModel.frag != null && _viewModel.frag.Gastos != null)
+            //{
+            //    foreach (CatalogoGasto gasto in _viewModel.frag.Gastos)
+            //        montoTotal += gasto.Monto;
 
 
 
-                if (txtUnidades.Text != string.Empty)
-                {
-                    montoPolipo = montoTotal / (Convert.ToInt32(txtUnidades.Text));
+            //    if (txtUnidades.Text != string.Empty)
+            //    {
+            //        montoPolipo = montoTotal / (Convert.ToInt32(txtUnidades.Text));
 
 
-                }
+            //    }
 
-                actualizarListaGastos();
-            }
+            //    actualizarListaGastos();
+            //}
 
-            lblMontoTotal.Text = montoTotal.ToString("C2");
-            lblMontoPolipo.Text = montoPolipo.ToString("C2");
+            //lblMontoTotal.Text = montoTotal.ToString("C2");
+            //lblMontoPolipo.Text = montoPolipo.ToString("C2");
         }
 
         /// <summary>
@@ -311,12 +321,12 @@ namespace madridReef.Views.Frags
         /// </summary>
         private void resetearControles()
         {
-            txtDescripción.Text = string.Empty;
-            //txtIdProveedor.Text = string.Empty;
-            //txtIdTipoProducto.Text = string.Empty;
-            txtUnidades.Text = string.Empty;
-            txtURL.Text = string.Empty;
-            _viewModel = new FragDetailViewModel();
+            //txtDescripción.Text = string.Empty;
+            ////txtIdProveedor.Text = string.Empty;
+            ////txtIdTipoProducto.Text = string.Empty;
+            //txtUnidades.Text = string.Empty;
+            //txtURL.Text = string.Empty;
+            //_viewModel = new FragDetailViewModel();
         }
 
         /// <summary>
@@ -324,13 +334,13 @@ namespace madridReef.Views.Frags
         /// </summary>
         public void GenerarHandlers()
         {
-            TapGestureRecognizer tapEventSave = new TapGestureRecognizer();
-            tapEventSave.Tapped += BtnGuardarVenta_Clicked;
-            myImgSave.GestureRecognizers.Add(tapEventSave);
+            //TapGestureRecognizer tapEventSave = new TapGestureRecognizer();
+            //tapEventSave.Tapped += BtnGuardarVenta_Clicked;
+            //myImgSave.GestureRecognizers.Add(tapEventSave);
 
-            TapGestureRecognizer tapEventAdd = new TapGestureRecognizer();
-            tapEventAdd.Tapped += BtnAgregar_Clicked;
-            myImgAdd.GestureRecognizers.Add(tapEventAdd);
+            //TapGestureRecognizer tapEventAdd = new TapGestureRecognizer();
+            //tapEventAdd.Tapped += BtnAgregar_Clicked;
+            //myImgAdd.GestureRecognizers.Add(tapEventAdd);
 
 
 
@@ -354,34 +364,40 @@ namespace madridReef.Views.Frags
 
         private void PickerColoniaMadre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedValue = pickerColoniaMadre.Items[pickerColoniaMadre.SelectedIndex];
+            try { 
+                var selectedValue = pickerColoniaMadre.Items[pickerColoniaMadre.SelectedIndex];
 
-            Compra colonia = allCompras.Single(
-                delegate (Compra x)
-                {
-                    return selectedValue.ToString() == x.Descripcion;
-                }
-                );
+                Compra colonia = allCompras.Single(
+                    delegate (Compra x)
+                    {
+                        return selectedValue.ToString() == x.Descripcion;
+                    }
+                    );
 
 
-            txtIdColoniaMadre.Text = colonia.Id;
-            lblMontoPolipo.Text = colonia.PrecioEstimadoUnidad.ToString();
-            
+                txtIdColoniaMadre.Text = colonia.Id;
+                lblMontoPolipo.Text = colonia.PrecioEstimadoUnidad.ToString();
+             }
+           catch(Exception ex) { throw ex; }
 
-        }
+}
 
         private void DatePickerElaboracion_DateSelected(object sender, DateChangedEventArgs e)
         {
-            lblFechaElaboracion.Text = e.NewDate.ToShortDateString();
+            //lblFechaElaboracion.Text = e.NewDate.ToShortDateString();
         }
 
         private void TxtUnidades_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (lblMontoPolipo.Text != string.Empty && lblMontoPolipo.Text != string.Empty)
+            try
             {
+                if (lblMontoPolipo.Text != string.Empty && txtUnidades.Text != string.Empty)
+                {
 
-                lblMontoPolipo.Text =  Convert.ToString( Convert.ToInt32( txtUnidades.Text) * Convert.ToDecimal( lblMontoPolipo.Text));
+                    lblMontoTotal.Text = Convert.ToString(Convert.ToInt32(txtUnidades.Text) * Convert.ToDecimal(lblMontoPolipo.Text));
+                }
             }
+           catch(Exception ex) { throw ex; }
 
         }
     }

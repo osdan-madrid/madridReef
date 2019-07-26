@@ -17,7 +17,7 @@
             </Picker>
 
             <Label Text="Pólipos" />
-            <Entry x:Name="txtUnidades" TextChanged="TxtUnidades_TextChanged" ></Entry>
+            <Entry x:Name="txtUnidades" TextChanged="TxtUnidades_TextChanged" Keyboard="Numeric" ></Entry>
 
 
             <Label Text="Descripcion" />

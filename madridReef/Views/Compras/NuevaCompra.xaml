@@ -35,7 +35,7 @@
             <!--Selecciona Fecha compra -->
             <StackLayout>
                 <Label Text="Fecha de compra" />
-                <DatePicker DateSelected="DatePicker_DateSelected" />
+                <DatePicker DateSelected="DatePicker_DateSelected"   />
                 
                 <Label x:Name="lblFecha" HorizontalOptions="Center"></Label>
             </StackLayout>

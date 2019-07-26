@@ -31,6 +31,7 @@ namespace madridReef.Services
                   Gastos = item.Object.Gastos,
                   ImagenURL = item.Object.ImagenURL,
                   PrecioTotalCompra = item.Object.PrecioTotalCompra,
+                  PrecioEstimadoUnidad = item.Object.PrecioEstimadoUnidad,
                   proveedor = item.Object.proveedor,
                   tipoProducto = item.Object.tipoProducto,
                   FechaRegistro = item.Object.FechaRegistro,
@@ -42,7 +43,7 @@ namespace madridReef.Services
         /// Obtendra la lista de todos los elementos que existen en la DB
         /// </summary>
         /// <returns></returns>
-        public async Task<List<Compra>> GetAllColoniaMadres()
+        public async Task<List<Compra>> GetAllColoniasMadre()
         {
 
             var all = await GetAll();
@@ -72,8 +73,8 @@ namespace madridReef.Services
                   PrecioTotalCompra = item.PrecioTotalCompra,
                   proveedor = item.proveedor,
                   tipoProducto = item.tipoProducto,
-                  FechaRegistro = System.DateTime.Now
-
+                  FechaRegistro = System.DateTime.Now,
+                  PrecioEstimadoUnidad = item.PrecioEstimadoUnidad
               });
 
         }
