@@ -11,7 +11,10 @@
 
         <StackLayout Spacing="20" Padding="15">
 
-
+            <Label Text="Imagen URL" />
+            <Entry x:Name="txtURL" ></Entry>
+            
+            
             <Entry x:Name="txtIdColoniaMadre" IsVisible="False" ></Entry>
             <Picker x:Name="pickerColoniaMadre" Title="Selecciona una Colonia" SelectedIndexChanged="PickerColoniaMadre_SelectedIndexChanged"  >
             </Picker>
@@ -29,7 +32,7 @@
                 <Label Text="Fecha de elaboración" />
                 <DatePicker DateSelected="DatePickerElaboracion_DateSelected" />
 
-                <Label x:Name="lblFechaElaboracion" HorizontalOptions="Center"></Label>
+                <Label x:Name="lblFechaElaboracion" HorizontalOptions="Center" IsVisible="False"></Label>
             </StackLayout>
             <!--Termina Fecha compra -->
 
@@ -37,18 +40,22 @@
             <!--Selecciona Fecha compra -->
             <StackLayout>
                 <Label Text="Fecha de Venta" />
-                <DatePicker DateSelected="DatePicker_DateSelected" />
+                <DatePicker DateSelected="DatePickerVenta_DateSelected" />
 
-                <Label x:Name="lblFechaVenta" HorizontalOptions="Center"></Label>
+                <Label x:Name="lblFechaVenta" HorizontalOptions="Center" IsVisible="False"></Label>
             </StackLayout>
             <!--Termina Fecha compra -->
 
-            
-            <Label Text="Imagen URL" />
-            <Entry x:Name="txtURL" ></Entry>
-            
+
+            <Label x:Name="lblEstatus" HorizontalOptions="Center" IsVisible="False"></Label>
+            <Picker x:Name="pickerEstatus" Title="Selecciona un Estatus" SelectedIndexChanged="PickerEstatus_SelectedIndexChanged"  >
+            </Picker>
+
 
             <!-- Montos Totales -->
+
+
+            
             <StackLayout  HorizontalOptions="Center"  Orientation="Horizontal">
                 <Button x:Name="btnActualizarCostos" WidthRequest="50" TextColor="#54526d" FontSize="Large" Text="&#xf021;" FontAttributes="Bold" Clicked="BtnActualizarCostos_Clicked" >
                     <Button.FontFamily>
@@ -64,6 +71,18 @@
                 <Label x:Name="lblTituloEstimadoPorPieza" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="EndAndExpand" Text="Costo  por pólipo: "></Label>
                 <Label x:Name="lblMontoPolipo" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="EndAndExpand" Text="0.0"></Label>
             </StackLayout>
+
+            <Label Text="Precio Sugerido de Venta" />
+            <Entry x:Name="txtPrecioSugeridoVenta" ></Entry>
+
+            <Label Text="Precio de Venta" />
+            <Entry x:Name="txtPrecioVenta" ></Entry>
+
+            <Label Text="Nombre Comprador" />
+            <Entry x:Name="txtComprador" ></Entry>
+
+
+
             <!-- Termina Montos Totales -->
 
             <!-- Botón Guardar -->
@@ -95,7 +114,7 @@
                                     <Label FontSize="12" Text="{Binding  Nombre}" />
                                 </StackLayout>
                                 <StackLayout VerticalOptions="Center"  Padding="2"  Grid.Column="1">
-                                    <Label  FontSize="12"  Text="{Binding Monto, StringFormat='$    : {0}'}" />
+                                    <Label  FontSize="12"  Text="{Binding Monto, StringFormat='$    {0}'}" />
                                 </StackLayout>
                                 <StackLayout VerticalOptions="Center"  Padding="2"  Grid.Column="2">
                                     <Button CommandParameter="{Binding Nombre}" 

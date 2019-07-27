@@ -19,7 +19,6 @@ namespace madridReef.Views.Frags
         FragDetailViewModel viewModel;
         CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
         List<CatalogoGasto> allItems;
-        //Compra compraGlobal = new Compra();
 
         public Gastos(ref FragDetailViewModel viewModel)
         {
@@ -51,11 +50,8 @@ namespace madridReef.Views.Frags
 
         }
 
-     
-
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            //await PopupNavigation.PopAsync();
             await PopupNavigation.PopAsync(true);
         }
 
@@ -95,7 +91,6 @@ namespace madridReef.Views.Frags
 
             actualizarTotal();
 
-            //resetearControles();
             PopupNavigation.PopAsync();
 
         }
@@ -116,13 +111,16 @@ namespace madridReef.Views.Frags
 
         private void actualizarTotal()
         {
+            decimal montoTotal = 0;
             if (this.viewModel.frag != null && this.viewModel.frag.Gastos != null)
             {
 
 
                 foreach (CatalogoGasto gasto in this.viewModel.frag.Gastos)
-                    this.viewModel.frag.TotalOtrosGastos += gasto.Monto;
+                    montoTotal += gasto.Monto;
 
+
+                this.viewModel.frag.TotalOtrosGastos = montoTotal;
             }
         }
     }

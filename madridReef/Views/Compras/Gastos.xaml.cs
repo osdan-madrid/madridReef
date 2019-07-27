@@ -19,7 +19,6 @@ namespace madridReef.Views.Compras
         CompraDetailViewModel viewModel;
         CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
         List<CatalogoGasto> allItems;
-        //Compra compraGlobal = new Compra();
 
         public Gastos(ref CompraDetailViewModel viewModel)
         {
@@ -46,35 +45,12 @@ namespace madridReef.Views.Compras
             {
                 picker.Items.Add(gasto.Nombre);
             }
-            //picker.ItemsSource = allItems;
 
 
         }
 
-        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        //{
-        //    var item = args.SelectedItem as Gasto;
-        //    if (item == null)
-        //        return;
-
-
-        //    //await Navigation.PushAsync(new GastosDetails(new ViewModels.Gastos.ItemDetailViewModel(item)));
-
-        //    // Manually deselect item.
-        //    //ItemsListView.SelectedItem = null;
-        //}
-
-        //private void TaskEntry_OnTextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (!string.IsNullOrEmpty(TaskEntry.Text))
-        //        TaskButton.IsEnabled = true;
-        //    else if (string.IsNullOrEmpty(TaskEntry.Text))
-        //        TaskButton.IsEnabled = false;
-        //}
-
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            //await PopupNavigation.PopAsync();
             await PopupNavigation.PopAsync(true);
         }
 
@@ -91,10 +67,7 @@ namespace madridReef.Views.Compras
 
             txtMonto.Text = gasto.Monto.ToString();
             txtID.Text = gasto.GastoId;
-            //await Navigation.PushAsync(new GastosDetails(new ViewModels.Gastos.ItemDetailViewModel(item)));
 
-            // Manually deselect item.
-            //ItemsListView.SelectedItem = null;
         }
 
         async private void BtnAgregar_Clicked(object sender, EventArgs e)
@@ -117,7 +90,6 @@ namespace madridReef.Views.Compras
 
             actualizarTotal();
 
-            //resetearControles();
             PopupNavigation.PopAsync();
 
         }
@@ -138,13 +110,16 @@ namespace madridReef.Views.Compras
 
         private void actualizarTotal()
         {
+            decimal montoTotal = 0;
             if (this.viewModel.compra != null && this.viewModel.compra.Gastos != null)
             {
 
 
                 foreach (CatalogoGasto gasto in this.viewModel.compra.Gastos)
-                    this.viewModel.compra.PrecioTotalCompra += gasto.Monto;
+                    montoTotal += gasto.Monto;
 
+
+                this.viewModel.compra.PrecioTotalCompra = montoTotal;
             }
         }
     }

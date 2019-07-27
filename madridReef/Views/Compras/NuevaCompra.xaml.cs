@@ -424,9 +424,6 @@ namespace madridReef.Views.Compras
         }
 
 
-
-
-
         #endregion
 
 

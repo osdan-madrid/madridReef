@@ -99,7 +99,7 @@
                                     <Label FontSize="12" Text="{Binding  Nombre}" />
                                 </StackLayout>
                                 <StackLayout VerticalOptions="Center"  Padding="2"  Grid.Column="1">
-                                    <Label  FontSize="12"  Text="{Binding Monto, StringFormat='$    : {0}'}" />
+                                    <Label  FontSize="12"  Text="{Binding Monto, StringFormat='$   {0}'}" />
                                 </StackLayout>
                                 <StackLayout VerticalOptions="Center"  Padding="2"  Grid.Column="2">
                                     <Button CommandParameter="{Binding Nombre}" 

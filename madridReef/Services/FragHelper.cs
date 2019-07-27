@@ -27,7 +27,7 @@ namespace madridReef.Services
                   Gastos = item.Object.Gastos,
                   ImagenURL = item.Object.ImagenURL,
                   PrecioSugeridoVenta = item.Object.PrecioSugeridoVenta,
-                  ValorPolipos = item.Object.ValorPolipos,
+                  //ValorPolipos = item.Object.ValorPolipos,
                   FechaRegistro = item.Object.FechaRegistro,
                   FechaModificacion = item.Object.FechaModificacion
 
@@ -47,7 +47,13 @@ namespace madridReef.Services
                   Gastos = _nuevo.Gastos,
                   ImagenURL = _nuevo.ImagenURL,
                   PrecioSugeridoVenta = _nuevo.PrecioSugeridoVenta,
-                  ValorPolipos = _nuevo.ValorPolipos,
+                  PrecioElaboracion = _nuevo.PrecioElaboracion,
+                  PrecioDeVenta = _nuevo.PrecioDeVenta,
+                  Descripcion = _nuevo.Descripcion,
+                  Pagado = _nuevo.Pagado,
+                  Ganancia = _nuevo.Ganancia,
+                  TotalOtrosGastos = _nuevo.TotalOtrosGastos,
+                  NombreComprador = _nuevo.NombreComprador,
                   FechaRegistro = System.DateTime.Now
               });
 
@@ -60,6 +66,15 @@ namespace madridReef.Services
               .Child("Frags")
               .OnceAsync<Frag>();
             return all.Where(a => a.Id == item.Id).FirstOrDefault();
+        }
+
+        public async Task<Frag> GetFiltered(Frag item)
+        {
+            var all = await GetAll();
+            await firebase
+              .Child("Frags")
+              .OnceAsync<Frag>();
+            return all.Where(a => a.Estatus == item.Estatus).FirstOrDefault();
         }
 
         public async Task Update(Frag item)
@@ -80,7 +95,7 @@ namespace madridReef.Services
                   Gastos = item.Gastos,
                   ImagenURL = item.ImagenURL,
                   PrecioSugeridoVenta = item.PrecioSugeridoVenta,
-                  ValorPolipos = item.ValorPolipos,
+                  //ValorPolipos = item.ValorPolipos,
                   FechaRegistro = item.FechaRegistro,
                   FechaModificacion = System.DateTime.Now
               });

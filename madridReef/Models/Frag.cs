@@ -10,16 +10,14 @@ namespace madridReef.Models
         /// </summary>
         public string Id { get; set; }
 
-
+        /// <summary>
+        /// Descripción o Nombre identificador
+        /// </summary>
+        public string Descripcion { get; set; }
         /// <summary>
         /// Colonia Madre
         /// </summary>
         public Compra ColoniaMadre { get; set; }
-
-        /// <summary>
-        /// Valor del frag, incluyendo todos los gastos relacionados
-        /// </summary>
-        public decimal ValorPolipos { get; set; }
 
         /// <summary>
         /// Suma total de otros gastos
@@ -27,24 +25,24 @@ namespace madridReef.Models
         public decimal TotalOtrosGastos { get; set; }
 
         /// <summary>
-        /// Costo real del frag
+        /// Valor del frag, incluyendo todos los gastos relacionados
         /// </summary>
         public decimal PrecioElaboracion { get; set; }
 
         /// <summary>
         /// Precio sugerido de venta
         /// </summary>
-        public decimal PrecioSugeridoVenta { get; set; }
+        public decimal? PrecioSugeridoVenta { get; set; }
 
         /// <summary>
         /// Precio Final de Venta
         /// </summary>
-        public decimal PrecioDeVenta { get; set; }
+        public decimal? PrecioDeVenta { get; set; }
 
         /// <summary>
         /// Ganancia
         /// </summary>
-        public decimal Ganancia { get; set; }
+        public decimal? Ganancia { get; set; }
 
         /// <summary>
         /// Lista de gastos relacionados a la elaboracion
@@ -79,11 +77,21 @@ namespace madridReef.Models
         /// <summary>
         /// Fecha de Modificación
         /// </summary>
-        public DateTime FechaModificacion { get; set; }
+        public DateTime? FechaModificacion { get; set; }
 
         /// <summary>
         /// ¿Ya fué pagado?
         /// </summary>
         public bool Pagado { get; set; }
+
+        /// <summary>
+        /// Almacenará el nombre del comprador
+        /// </summary>
+        public string NombreComprador { get; set; }
+
+        /// <summary>
+        /// Estatus del frag
+        /// </summary>
+        public string Estatus { get; set; }
     }
 }
