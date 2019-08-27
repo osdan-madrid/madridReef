@@ -26,7 +26,7 @@
             
             
             <Label Text="Unidades" />
-            <Entry x:Name="txtUnidades" ></Entry>
+            <Entry x:Name="txtUnidades" Keyboard="Numeric" ></Entry>
 
             <Label Text="Imagen URL" />
             <Entry x:Name="txtURL" ></Entry>

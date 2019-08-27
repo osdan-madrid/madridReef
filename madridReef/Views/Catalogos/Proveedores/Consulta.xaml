@@ -4,9 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-            x:Class="madridReef.Views.TipoProductos.TipoProductosList">
+             x:Class="madridReef.Views.Catalogos.Proveedores.Consulta">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" Clicked="Add_Clicked">
+        <ToolbarItem Text="Agregar" Clicked="AddProveedor_Clicked">
             <ToolbarItem.IconImageSource>
                 <FontImageSource  Glyph="&#xf067;" FontFamily="fa-solid-900.ttf#Font Awesome 5 Free Solid"/>
             </ToolbarItem.IconImageSource>
@@ -37,12 +37,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Nombre}" 
+                            <Label Text="{Binding NombreEmpresa}" 
                                 d:Text="Empresa"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                            <Label Text="{Binding Nombre}" 
+                            <Label Text="{Binding NombreCompleto}" 
                                 d:Text="Contacto"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"

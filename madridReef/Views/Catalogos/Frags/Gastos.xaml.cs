@@ -11,7 +11,7 @@ using madridReef.Models;
 using madridReef.ViewModels.Frag;
 using madridReef.Services;
 
-namespace madridReef.Views.Frags
+namespace madridReef.Views.Catalogos.Frags
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Gastos 
@@ -66,7 +66,7 @@ namespace madridReef.Views.Frags
                 }
                 );
 
-            txtMonto.Text = gasto.Monto.ToString();
+            txtMonto.Text = gasto.Monto == 0? string.Empty : gasto.Monto.ToString();
             txtID.Text = gasto.GastoId;
 
         }

@@ -16,7 +16,7 @@ namespace madridReef.Services
         {
 
             return (await firebase
-              .Child("CatalogoGastos")
+              .Child("Gastos")
               .OnceAsync<CatalogoGasto>()).Select(item => new CatalogoGasto
               {
                   GastoId = item.Key, 
@@ -32,7 +32,7 @@ namespace madridReef.Services
         public async Task Add(CatalogoGasto _nuevo)
         {
             await firebase
-              .Child("CatalogoGastos")
+              .Child("Gastos")
               .PostAsync(new CatalogoGasto()
               {
                  Descripcion = _nuevo.Descripcion,
@@ -47,7 +47,7 @@ namespace madridReef.Services
         {
             var all = await GetAll();
             await firebase
-              .Child("CatalogoGastos")
+              .Child("Gastos")
               .OnceAsync<CatalogoGasto>();
             return all.Where(a => a.GastoId == item.GastoId).FirstOrDefault();
         }
@@ -55,11 +55,11 @@ namespace madridReef.Services
         public async Task Update(CatalogoGasto item)
         {
             var toUpdate = (await firebase
-              .Child("CatalogoGastos")
+              .Child("Gastos")
               .OnceAsync<CatalogoGasto>()).Where(a => a.Key == item.GastoId).FirstOrDefault();
 
             await firebase
-              .Child("CatalogoGastos")
+              .Child("Gastos")
               .Child(toUpdate.Key)
               .PutAsync(new CatalogoGasto()
               {

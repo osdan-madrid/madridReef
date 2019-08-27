@@ -11,14 +11,14 @@ using madridReef.Services;
 using madridReef.Models;
 using madridReef.ViewModels.TipoProductos;
 
-namespace madridReef.Views.TipoProductos
+namespace madridReef.Views.Catalogos.TipoProductos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TipoProductoDetails : ContentPage
+    public partial class Editar : ContentPage
     {
         TipoProductoDetailViewModel viewModel;
         TipoProductosHelper firebaseHelper = new TipoProductosHelper();
-        public TipoProductoDetails( TipoProductoDetailViewModel viewModel)
+        public Editar( TipoProductoDetailViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
@@ -29,7 +29,7 @@ namespace madridReef.Views.TipoProductos
             txtID.Text = viewModel._tipoProducto.TipoProductoID;
         }
 
-        public TipoProductoDetails()
+        public Editar()
         {
             InitializeComponent();
 

@@ -10,15 +10,15 @@ using Xamarin.Forms.Xaml;
 using madridReef.Services;
 using madridReef.Models;
 
-namespace madridReef.Views.CatalogoGastos
+namespace madridReef.Views.Catalogos.Gastos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class newGastosDetails : ContentPage
+    public partial class Nuevo : ContentPage
     {
         CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
 
      
-        public newGastosDetails()
+        public Nuevo()
         {
             InitializeComponent();
             ResetearControles();
@@ -48,6 +48,7 @@ namespace madridReef.Views.CatalogoGastos
             txtFechaRegistro.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtMonto.Text = string.Empty;
+            txtNombre.Focus();
         }
 
     }

@@ -33,23 +33,20 @@ namespace madridReef.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    //case (int)MenuItemType.About:
-                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                    //    break;
                     case (int)MenuItemType.Proveedores:
-                        MenuPages.Add(id, new NavigationPage(new Proveedores.ProveedoresList()));
+                        MenuPages.Add(id, new NavigationPage(new Catalogos.Proveedores.Consulta()));
                         break;
                     case (int)MenuItemType.TipoProducto:
-                        MenuPages.Add(id, new NavigationPage(new TipoProductos.TipoProductosList()));
+                        MenuPages.Add(id, new NavigationPage(new Catalogos.TipoProductos.Consulta()));
                         break;
                     case (int)MenuItemType.Gastos:
-                        MenuPages.Add(id, new NavigationPage(new CatalogoGastos.GastosList()));
+                        MenuPages.Add(id, new NavigationPage(new Catalogos.Gastos.Consulta()));
                         break;
                     case (int)MenuItemType.Compras:
                         MenuPages.Add(id, new NavigationPage(new Compras.NuevaCompra()));
                         break;
                     case (int)MenuItemType.Frag:
-                        MenuPages.Add(id, new NavigationPage(new Frags.NuevoFrag()));
+                        MenuPages.Add(id, new NavigationPage(new Catalogos.Frags.Nuevo()));
                         break;
                 }
             }

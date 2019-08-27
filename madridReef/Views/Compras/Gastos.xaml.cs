@@ -65,7 +65,9 @@ namespace madridReef.Views.Compras
                 }
                 );
 
-            txtMonto.Text = gasto.Monto.ToString();
+            //txtMonto.Text = gasto.Monto.ToString();
+            txtMonto.Text = gasto.Monto == 0 ? string.Empty : gasto.Monto.ToString();
+
             txtID.Text = gasto.GastoId;
 
         }

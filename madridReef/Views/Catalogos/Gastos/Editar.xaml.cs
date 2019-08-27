@@ -13,14 +13,14 @@ using madridReef.ViewModels.CatalogoGastos;
 
 
 
-namespace madridReef.Views.CatalogoGastos
+namespace madridReef.Views.Catalogos.Gastos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GastosDetails : ContentPage
+    public partial class Editar : ContentPage
     {
         ItemDetailViewModel viewModel;
         CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
-        public GastosDetails(ItemDetailViewModel viewModel)
+        public Editar(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
@@ -32,7 +32,7 @@ namespace madridReef.Views.CatalogoGastos
             txtID.Text = viewModel.gasto.GastoId;
         }
 
-        public GastosDetails()
+        public Editar()
         {
             InitializeComponent();
             ResetearControles();
@@ -64,7 +64,7 @@ namespace madridReef.Views.CatalogoGastos
                 await firebaseHelper.Update(_item);
                 ResetearControles();
                 await DisplayAlert("Exitoso", "Gasto Actualizado Exitosamente", "OK");
-                await Navigation.PushModalAsync(new NavigationPage(new GastosList()));
+                await Navigation.PushModalAsync(new NavigationPage(new Editar()));
             }
             catch (Exception ex)
             {
@@ -102,7 +102,7 @@ namespace madridReef.Views.CatalogoGastos
                 await firebaseHelper.Delete(_item);
                 ResetearControles();
                 await DisplayAlert("Exitoso", "Gasto Eliminado Exitosamente", "OK");
-                await Navigation.PushModalAsync(new NavigationPage(new GastosList()));
+                await Navigation.PushModalAsync(new NavigationPage(new Editar()));
             }
 
 

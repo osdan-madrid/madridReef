@@ -31,41 +31,71 @@
     <EmbeddedResource Update="Views\Compras\NuevaCompra.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CatalogoGastos\GastosDetails.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Gastos\Editar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CatalogoGastos\GastosList.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Gastos\Consulta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CatalogoGastos\newGastosDetails.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Gastos\Nuevo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Frags\NuevoFrag.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Frags\Nuevo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Proveedores\ProveedoresDetails.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Proveedores\Editar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Proveedores\ProveedoresList.xaml">
+    <EmbeddedResource Update="Views\Catalogos\Proveedores\Consulta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TipoProductos\newTipoProducto.xaml">
+    <EmbeddedResource Update="Views\Catalogos\TipoProductos\Nuevo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TipoProductos\TipoProductoDetails.xaml">
+    <EmbeddedResource Update="Views\Catalogos\TipoProductos\Editar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TipoProductos\TipoProductosList.xaml">
+    <EmbeddedResource Update="Views\Catalogos\TipoProductos\Consulta.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Logs\Log.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Frags\Gastos.xaml.cs">
+    <Compile Update="Views\Catalogos\Frags\Nuevo.xaml.cs">
+      <DependentUpon>Nuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Gastos\Editar.xaml.cs">
+      <DependentUpon>Editar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Gastos\Consulta.xaml.cs">
+      <DependentUpon>Consulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Gastos\Nuevo.xaml.cs">
+      <DependentUpon>Nuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Proveedores\Editar.xaml.cs">
+      <DependentUpon>Editar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Proveedores\Consulta.xaml.cs">
+      <DependentUpon>Consulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\TipoProductos\Nuevo.xaml.cs">
+      <DependentUpon>Nuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\TipoProductos\Editar.xaml.cs">
+      <DependentUpon>Editar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\TipoProductos\Consulta.xaml.cs">
+      <DependentUpon>Consulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Catalogos\Frags\Gastos.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Views\Proveedores\newProveedoresDetails.xaml.cs">
-      <DependentUpon>newProveedoresDetails.xaml</DependentUpon>
+    <Compile Update="Views\Catalogos\Proveedores\Nuevo.xaml.cs">
+      <DependentUpon>Nuevo.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

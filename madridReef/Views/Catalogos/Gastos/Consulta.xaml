@@ -4,9 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="madridReef.Views.Proveedores.ProveedoresList">
+              x:Class="madridReef.Views.Catalogos.Gastos.Consulta">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" Clicked="AddProveedor_Clicked">
+        <!--<ToolbarItem Text="Agregar" Clicked="Add_Clicked"/>-->
+        <ToolbarItem Text="Agregar" Clicked="Add_Clicked">
             <ToolbarItem.IconImageSource>
                 <FontImageSource  Glyph="&#xf067;" FontFamily="fa-solid-900.ttf#Font Awesome 5 Free Solid"/>
             </ToolbarItem.IconImageSource>
@@ -27,22 +28,18 @@
                 <x:Array Type="{x:Type x:String}">
                     <x:String>First Item</x:String>
                     <x:String>Second Item</x:String>
-                    <x:String>Third Item</x:String>
-                    <x:String>Forth Item</x:String>
-                    <x:String>Fifth Item</x:String>
-                    <x:String>Sixth Item</x:String>
                 </x:Array>
             </d:ListView.ItemsSource>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding NombreEmpresa}" 
+                            <Label Text="{Binding Nombre}" 
                                 d:Text="Empresa"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                            <Label Text="{Binding NombreCompleto}" 
+                            <Label Text="{Binding Descripcion}" 
                                 d:Text="Contacto"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
@@ -62,3 +59,6 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    
+    
+ 

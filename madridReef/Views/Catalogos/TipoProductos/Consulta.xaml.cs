@@ -10,15 +10,15 @@ using madridReef.Services;
 using madridReef.Models;
 using madridReef.ViewModels;
 
-namespace madridReef.Views.TipoProductos
+namespace madridReef.Views.Catalogos.TipoProductos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TipoProductosList : ContentPage
+    public partial class Consulta : ContentPage
     {
         TipoProductosHelper firebaseHelper = new TipoProductosHelper();
         public ObservableCollection<string> Items { get; set; }
 
-        public TipoProductosList()
+        public Consulta()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace madridReef.Views.TipoProductos
 
         async void Add_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new newTipoProducto()));
+            await Navigation.PushModalAsync(new NavigationPage(new Nuevo()));
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -43,7 +43,7 @@ namespace madridReef.Views.TipoProductos
                 return;
 
             
-            await Navigation.PushAsync(new TipoProductoDetails(new ViewModels.TipoProductos.TipoProductoDetailViewModel(item)));
+            await Navigation.PushAsync(new Editar(new ViewModels.TipoProductos.TipoProductoDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

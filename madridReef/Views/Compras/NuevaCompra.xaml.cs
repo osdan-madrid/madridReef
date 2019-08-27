@@ -52,6 +52,7 @@ namespace madridReef.Views.Compras
         {
             try
             {
+                txtDescripción.Focus();
                 base.OnAppearing();
 
                 compra.Gastos = new List<CatalogoGasto>();

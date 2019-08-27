@@ -4,27 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="madridReef.Views.Frags.NuevoFrag"
+             x:Class="madridReef.Views.Catalogos.Frags.Nuevo"
              Title="{Binding Title}">
 
     <ScrollView>
 
         <StackLayout Spacing="20" Padding="15">
 
-            <Label Text="Imagen URL" />
-            <Entry x:Name="txtURL" ></Entry>
-            
-            
             <Entry x:Name="txtIdColoniaMadre" IsVisible="False" ></Entry>
             <Picker x:Name="pickerColoniaMadre" Title="Selecciona una Colonia" SelectedIndexChanged="PickerColoniaMadre_SelectedIndexChanged"  >
             </Picker>
-
+            
             <Label Text="Pólipos" />
             <Entry x:Name="txtUnidades" TextChanged="TxtUnidades_TextChanged" Keyboard="Numeric" ></Entry>
 
 
             <Label Text="Descripcion" />
             <Entry x:Name="txtDescripción" ></Entry>
+
+            <Label Text="Imagen URL" />
+            <Entry x:Name="txtURL" ></Entry>
 
 
             <!--Selecciona Fecha Elaboración -->

@@ -5,13 +5,13 @@ using Xamarin.Forms.Xaml;
 using madridReef.Services;
 using madridReef.Models;
 
-namespace madridReef.Views.TipoProductos
+namespace madridReef.Views.Catalogos.TipoProductos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class newTipoProducto : ContentPage
+    public partial class Nuevo : ContentPage
     {
         TipoProductosHelper firebaseHelper = new TipoProductosHelper();
-        public newTipoProducto()
+        public Nuevo()
         {
             InitializeComponent();
         }

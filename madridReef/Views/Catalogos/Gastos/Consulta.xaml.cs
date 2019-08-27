@@ -10,13 +10,13 @@ using madridReef.Services;
 using madridReef.Models;
 using madridReef.ViewModels;
 
-namespace madridReef.Views.CatalogoGastos
+namespace madridReef.Views.Catalogos.Gastos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GastosList : ContentPage
+    public partial class Consulta : ContentPage
     {
         CatalogoGastosHelper firebaseHelper = new CatalogoGastosHelper();
-        public GastosList()
+        public Consulta()
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace madridReef.Views.CatalogoGastos
 
         async void Add_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new newGastosDetails()));
+            await Navigation.PushModalAsync(new NavigationPage(new Nuevo()));
             //await Navigation.PushAsync(new NavigationPage(new newGastosDetails())); 
         }
 
@@ -46,7 +46,7 @@ namespace madridReef.Views.CatalogoGastos
                 return;
 
 
-            await Navigation.PushAsync(new GastosDetails (new ViewModels.CatalogoGastos.ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new Editar (new ViewModels.CatalogoGastos.ItemDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

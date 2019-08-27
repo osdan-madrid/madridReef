@@ -12,10 +12,10 @@ using Rg.Plugins.Popup.Services;
 using madridReef.ViewModels.Frag;
 using System.Reflection;
 
-namespace madridReef.Views.Frags
+namespace madridReef.Views.Catalogos.Frags
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NuevoFrag : ContentPage
+    public partial class Nuevo : ContentPage
     {
         Frag frag = new Frag();
         FragDetailViewModel _viewModel = new FragDetailViewModel();
@@ -35,7 +35,7 @@ namespace madridReef.Views.Frags
 
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public NuevoFrag()
+        public Nuevo()
         {
             try
             { 
@@ -49,7 +49,7 @@ namespace madridReef.Views.Frags
             }
 
         }
-        public NuevoFrag(Frag frag = null)
+        public Nuevo(Frag frag = null)
         {
             try
             {
@@ -78,6 +78,8 @@ namespace madridReef.Views.Frags
                 fillColoniasMadre();
                 fillEstatus();
 
+
+                Logger.Info("Prueba de logger");
 
             }
             catch (Exception ex)
@@ -157,7 +159,7 @@ namespace madridReef.Views.Frags
 
                 }
 
-                await PopupNavigation.PushAsync(new Gastos(ref _viewModel), true);
+                await PopupNavigation.PushAsync(new  Gastos(ref _viewModel), true);
 
                 actualizarTotales();
             }
